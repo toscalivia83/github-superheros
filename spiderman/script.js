@@ -34,7 +34,6 @@ fetch(apiUrl)
     const title = document.getElementById('title');
     title.innerHTML = data.name;
 
-   
     const name = document.getElementById('name');
     name.innerHTML = data.biography['full-name'];
 
@@ -42,7 +41,10 @@ fetch(apiUrl)
     editeur.innerHTML = data.biography.publisher;
 
     const intelligence = document.getElementById('intelligence');
-    editeur.innerHTML = data.powerstats.intelligence;
+    intelligence.innerHTML = data.powerstats.intelligence;
+
+    const force = document.getElementById('force');
+    force.innerHTML = data.powerstats.strength;
     
 
 })  

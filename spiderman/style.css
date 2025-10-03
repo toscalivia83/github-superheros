@@ -1,4 +1,4 @@
-.hero-info{
+#hero-info{
     align-self: center;
    text-align: center;
    background-color: red;
@@ -6,4 +6,8 @@
 }
 #titre{
     color: blue;
+}
+#image img{
+    width: 250px;
+    border-radius: 5%;
 }
