@@ -7,12 +7,12 @@
 // 4. Faites des commits réguliers !
 // ========================================
 
-const heroId = 620; // 👈 CHANGEZ CET ID !
+const heroId = 659; // 👈 CHANGEZ CET ID !
 
 // Liste des IDs disponibles :
 // Spider-Man: 620, Batman: 70, Iron Man: 346, Superman: 644
 // Wonder Woman: 720, Hulk: 332, Thor: 659, Flash: 263
-const myToken = ""; // Ajoutez le token donné dans le cours
+const myToken = `https://superheroapi.com/api.php/6570e44801f81594f8a913d3e21be5ab/${heroId}`;
 const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
 // Récupérer les données du héros avec fetch()
