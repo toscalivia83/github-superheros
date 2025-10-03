@@ -21,13 +21,31 @@ fetch(apiUrl)
 .then(response => response.json())
 .then(data => {
     console.log(data);
-    const heroInfo = document.getElementById('hero-info').innerHTML = data.name
-    const name = document.getElementById('name').innerHTML = data.biographyy['full-name']
-    const editeur = document.getElementById('editeur').innerHTML = data.biography.publisher
 
+    // const heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+    // document.getElementById("image").innerHTML = heroImageUrl; 
+
+    //  const image = document.getElementById('image');
+    // image.src = data.image.url;
+
+    const heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+    document.getElementById("image").innerHTML = `<img src="${heroImageUrl}" alt="image">`;
+
+    const title = document.getElementById('title');
+    title.innerHTML = data.name;
+
+   
+    const name = document.getElementById('name');
+    name.innerHTML = data.biography['full-name'];
+
+    const editeur = document.getElementById('editeur');
+    editeur.innerHTML = data.biography.publisher;
+
+    const intelligence = document.getElementById('intelligence');
+    editeur.innerHTML = data.powerstats.intelligence;
     
-})  
 
+})  
 
 .catch(error => console.error('Erreur :', error));  
 // et les afficher grâce à Javascript dans le HTML de cette manière :
