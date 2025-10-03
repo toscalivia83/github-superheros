@@ -1,0 +1,15 @@
+#hero-info {
+
+
+    text-align: center;
+    background-color: rgb(77, 31, 77); 
+    color: rgb(15, 124, 15);
+    
+   
+    width: 100%;            
+    max-width: 600px;      
+    margin: 50px auto;     
+
+    border-radius: 12px; 
+   
+}

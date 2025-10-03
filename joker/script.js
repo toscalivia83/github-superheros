@@ -18,7 +18,20 @@ const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 // Récupérer les données du héros avec fetch()
 fetch(apiUrl)
 .then(response => response.json()) // Convertit la réponse en JSON
-.then(data => console.log(data)) // Affiche les données dans la console
+.then(data => {
+    const heroImageUrl ="https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+    
+    const heroHtml = `
+    <h2>${data.name}</h2>
+    <img src="${heroImageUrl}" alt="${data.name}" height="200" />
+    <p><strong>Nom complet :</strong> ${data.biography['full-name']}</p>
+    <p><strong>Éditeur :</strong> ${data.biography.publisher}</p>
+    <p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p>
+    <p><strong>Force :</strong> ${data.powerstats.strength}/100</p>
+      `; 
+    document.getElementById("hero-info").innerHTML = heroHtml;
+}) 
+// Affiche les données dans la console
 .catch(error => console.error('Erreur :', error)); // Gestion d'erreur
 
 // et les afficher grâce à Javascript dans le HTML de cette manière :
