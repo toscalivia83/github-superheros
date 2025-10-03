@@ -1,8 +1,9 @@
+#body{
+    background-color: rgb(169, 34, 34);
+}
 #hero-info{
     align-self: center;
-   text-align: center;
-   background-color: red;
-
+    text-align: center;
 }
 #titre{
     color: blue;
@@ -10,4 +11,14 @@
 #image img{
     width: 250px;
     border-radius: 5%;
+}
+.infos{
+    display: flex;
+    border: 5px;
+    border-style: solid;
+    border-color: black;
+    width: 350px;
+    margin: 0 auto;
+    flex-direction: column;
+    line-height: 0.2;
 }
