@@ -92,10 +92,6 @@ ul li {
     70% { transform: scale(0.9); }
     100% { transform: scale(1); }
 }                                                
-=======
-/* style.css */
-
-/* ----- Reset de base ----- */
 * {
     margin: 0;
     padding: 0;
