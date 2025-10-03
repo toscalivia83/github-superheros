@@ -17,10 +17,14 @@ const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
 // Récupérer les données du héros avec fetch()
 fetch(apiUrl)
-.then(response => response.json()) // Convertit la réponse en JSON
+.then(function(response) {
+    return response.json();
+}) // Convertit la réponse en JSON
 .then(data => {
-    const heroImageUrl ="https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+    console.log("data", data);
     
+    const heroImageUrl ="https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+
     const heroHtml = `
     <h2>${data.name}</h2>
     <img src="${heroImageUrl}" alt="${data.name}" height="200" />
@@ -28,7 +32,13 @@ fetch(apiUrl)
     <p><strong>Éditeur :</strong> ${data.biography.publisher}</p>
     <p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p>
     <p><strong>Force :</strong> ${data.powerstats.strength}/100</p>
-      `; 
+    <p><strong>Bioagraphy :</strong> ${data.biography['place-of-birth']}</p>
+    <p><strong>Taille :</strong> ${data.appearance.height.join(' / ')}</p>
+    <p><strong>Poids :</strong> ${data.appearance.weight.join(' / ')}</p>
+    <p><strong>occupation :</strong> ${data.work.occupation.base}</p>
+    <p><strong>Groupe :</strong> ${data.connections['group-affiliation']}</p>
+
+    `; 
     document.getElementById("hero-info").innerHTML = heroHtml;
 }) 
 // Affiche les données dans la console
