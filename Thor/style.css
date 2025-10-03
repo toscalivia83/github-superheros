@@ -7,19 +7,28 @@ body{
     background-color: darkgrey;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 #hero-info{
-    width: 100%;
+    width: 70%;
     text-align: center;
     
+}
+
+h1{
+    margin: 0;
+}
+
+#image{
+    margin: 20px;
 }
 
 #image img{
     width: 250px;
     border-radius: 30px;
     border: 3px solid white;
-    box-shadow: 20px 20px 7px rgba(35, 31, 31, 0.2);
-    
+    box-shadow: 20px 20px 7px rgba(35, 31, 31, 0.2); 
 }
+
 
 #titre{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -27,9 +36,13 @@ body{
     font-size: 5rem;
     margin: 10px;
 }
+
 .gras, #titre{
     color: white;
 }
+
 p{
+    width: 100%;
     margin: 0;
+    text-align: center;
 }
