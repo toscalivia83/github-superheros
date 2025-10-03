@@ -3,213 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flash - Le Super-Héros</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>The Flash - Super Héros</title>
   <style>
-    body {
+    /* Luxe - Importation de police tech/futuriste */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #ff0000, #660000);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
+      padding: 0;
+      box-sizing: border-box;
+      /* Police pour les titres */
+      font-family: 'Orbitron', sans-serif; 
     }
 
-    /* Fond animé */
-    .background {
+    body {
+      background: #0a0a0a; /* Noir profond */
+      color: #eee; /* Gris clair pour le texte principal */
+      overflow-x: hidden;
+      position: relative;
+      font-family: 'Roboto', sans-serif; /* Police clean pour le corps du texte */
+      line-height: 1.6;
+    }
+
+    /* Fond animé avec lignes inclinées jaunes subtiles (ACTIF) */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 200%; 
+      height: 200%; 
+      background: repeating-linear-gradient(
+        45deg, /* Inclinaison des lignes */
+        #FFD700 0px, /* Jaune or */
+        #FFD700 1px, /* Épaisseur des lignes */
+        transparent 1px,
+        transparent 70px /* Espacement des lignes */
+      );
+      animation: moveDiagonalLines 8s linear infinite; 
+      opacity: 0.08; /* Jaune très subtil */
       z-index: -1;
-      overflow: hidden;
-      background: linear-gradient(135deg, #7f1414, #990000);
+      transform-origin: top left; 
     }
 
-    .particle {
-      position: absolute;
-      background: rgba(255, 230, 128, 0.7);
-      border-radius: 50%;
-      animation: float 8s infinite linear;
-    }
-
-    @keyframes float {
-      from { transform: translateY(100vh) scale(0.5); opacity: 1; }
-      to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    @keyframes moveDiagonalLines {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-70px, -70px); } /* Déplacement diagonal */
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 80px 20px 40px;
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      color: #fdd835; /* Or métallique */
+      /* Effet néon/glow sophistiqué */
+      text-shadow: 0 0 10px #fdd835, 0 0 25px #e53935, 0 0 40px rgba(255, 0, 0, 0.7);
     }
 
     header p {
+      margin-top: 15px;
       font-size: 1.3rem;
-      color: #ffe680;
+      color: #bbb;
+      font-family: 'Roboto', sans-serif;
     }
 
-    .hero-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1200px;
-      z-index: 1;
-    }
-
+    /* Bloc image repensé pour le professionnalisme */
     .hero-image {
-      flex: 1 1 300px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      margin: 20px 0 60px; /* Moins de marge haut, plus bas */
+      position: relative;
     }
 
     .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255, 230, 128, 0.8);
-      transition: transform 0.3s ease;
+      width: 200px; /* Taille réduite */
+      height: 250px; /* Format rectangulaire */
+      object-fit: cover; /* S'assurer que l'image couvre le bloc sans déformation */
+      max-width: 90%;
+      border-radius: 10px; /* Bords légèrement arrondis */
+      /* Ombre discrète pour la présence, pas l'extravagance */
+      border: 2px solid #fdd835; 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 5px #fdd835; /* Ombre de profondeur + léger glow */
+      /* Animation retirée */
     }
 
-    .hero-image img:hover {
-      transform: scale(1.05);
-    }
-
-    .hero-details {
-      flex: 1 1 400px;
-      background: rgba(0,0,0,0.6);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    }
-
-    .hero-details h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #ffe680;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .hero-details p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 10px;
+    .section {
+      padding: 60px 20px;
       text-align: center;
-      transition: transform 0.3s ease;
     }
 
-    .stat-card:hover {
-      transform: scale(1.05);
-      background: rgba(255, 230, 128, 0.2);
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #fdd835;
+      text-shadow: 0 0 5px #fdd835, 0 0 15px #e53935;
+      position: relative;
     }
 
-    .stat-card h3 {
+    .section h2::after { /* Ligne décorative sophistiquée */
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #fdd835, transparent);
+      margin: 15px auto 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      /* Effet Frosted Glass (Verre Givre) */
+      background: rgba(255, 255, 255, 0.03); 
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(12px); 
+      border: 1px solid rgba(253, 216, 53, 0.1); 
+      /* Ombre subtile */
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: left; /* Meilleure lisibilité */
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      /* Glow intense au survol */
+      box-shadow: 0 0 10px #fdd835, 0 0 35px #e53935, 0 0 70px rgba(255, 0, 0, 0.8);
+    }
+    
+    .card h3 {
       font-size: 1.5rem;
-      margin: 0;
-      color: #ffe680;
+      color: #fdd835;
+      margin-bottom: 15px;
+      text-shadow: 0 0 5px rgba(253, 216, 53, 0.5);
+    }
+    
+    .card p {
+      color: #ccc;
+      font-family: 'Roboto', sans-serif;
     }
 
-    .stat-card p {
-      font-size: 0.9rem;
-      margin: 0.5rem 0 0;
+    .bio {
+      max-width: 900px;
+      margin: auto;
+      text-align: justify;
+      /* Frosted Glass appliqué à la bio */
+      background: rgba(255, 255, 255, 0.03);
+      padding: 40px;
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(253, 216, 53, 0.1);
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.1);
+      font-family: 'Roboto', sans-serif;
+      color: #ddd;
+    }
+    
+    .bio p:not(:last-child) {
+        margin-bottom: 20px;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background: rgba(0,0,0,0.5);
-      margin-top: auto;
-      width: 100%;
-      z-index: 1;
+      padding: 30px;
+      margin-top: 60px;
+      /* Bordure or métallique pour le footer */
+      border-top: 1px solid rgba(253, 216, 53, 0.3);
+      font-size: 1rem;
+      color: #fdd835;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .section h2 {
+        font-size: 1.8rem;
+      }
+      .hero-image img {
+        width: 150px;
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="background">
-    <!-- Particules animées -->
-    <div class="particle" style="width: 10px; height: 10px; left: 20%; animation-duration: 6s;"></div>
-    <div class="particle" style="width: 15px; height: 15px; left: 50%; animation-duration: 9s;"></div>
-    <div class="particle" style="width: 8px; height: 8px; left: 70%; animation-duration: 7s;"></div>
-    <div class="particle" style="width: 12px; height: 12px; left: 90%; animation-duration: 10s;"></div>
-    <div class="particle" style="width: 20px; height: 20px; left: 30%; animation-duration: 12s;"></div>
-  </div>
-
   <header>
-    <h1>Flash</h1>
-    <p>L'homme le plus rapide du monde ⚡</p>
+    <h1>⚡ The Flash ⚡</h1>
+    <p>Le plus rapide des super-héros de l’univers DC Comics.</p>
   </header>
 
-  <section class="hero-section">
-    <div class="hero-image">
-      <img src="https://i.ibb.co/1M4dZrY/flash-hero.jpg" alt="Flash le super-héros" />
-    </div>
-    <div class="hero-details">
-      <h2>Biographie</h2>
-      <p>
-        Flash, alias Barry Allen, est un super-héros de l'univers DC Comics. Grâce à une
-        expérience scientifique qui a mal tourné, il a obtenu une vitesse surhumaine et la
-        capacité de contrôler l'énergie cinétique. Véritable symbole d'espoir, il parcourt les
-        rues de Central City plus vite que la lumière, protégeant les innocents et combattant
-        le crime.
-      </p>
-      <p>
-        Reconnu pour sa détermination, son humour et sa loyauté envers la Justice League, Flash
-        reste l'un des personnages les plus emblématiques de l'univers des super-héros.
-      </p>
+  <div class="hero-image">
+    <img src="images.jpeg" alt="The Flash">
+  </div>
 
-      <div class="stats">
-        <div class="stat-card">
-          <h3>Vitesse</h3>
-          <p>Peut dépasser la vitesse de la lumière</p>
-        </div>
-        <div class="stat-card">
-          <h3>Intelligence</h3>
-          <p>Scientifique spécialisé en criminalistique</p>
-        </div>
-        <div class="stat-card">
-          <h3>Force</h3>
-          <p>Capacité physique augmentée</p>
-        </div>
-        <div class="stat-card">
-          <h3>Équipe</h3>
-          <p>Membre fondateur de la Justice League</p>
-        </div>
+  <section class="section">
+    <h2>Biographie</h2>
+    <div class="bio">
+      <p>
+        Barry Allen, alias The Flash, est un scientifique spécialisé en criminalistique
+        travaillant pour la police de Central City. Sa vie bascule lorsqu’un accident dans son
+        laboratoire lui confère une connexion à la Force Véloce, une énergie mystérieuse qui lui
+        donne une vitesse surhumaine. 
+      </p>
+      <p>
+        Derrière son costume rouge et or, Barry n’est pas seulement un héros : il est un symbole
+        d’espoir et de détermination, prêt à défier le temps et l’espace pour protéger ceux qu’il aime.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Pouvoirs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Vitesse Supersonique</h3>
+        <p>Capable de courir plus vite que la lumière et traverser le temps.</p>
+      </div>
+      <div class="card">
+        <h3>Guérison Accélérée</h3>
+        <p>Ses cellules se régénèrent rapidement, rendant les blessures superficielles.</p>
+      </div>
+      <div class="card">
+        <h3>Voyage Temporel</h3>
+        <p>Grâce à la Force Véloce, il peut voyager dans le passé et le futur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Alliés</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Green Arrow</h3>
+        <p>Un allié fidèle avec un sens aigu de la justice.</p>
+      </div>
+      <div class="card">
+        <h3>Superman</h3>
+        <p>Le seul capable de rivaliser avec sa vitesse.</p>
+      </div>
+      <div class="card">
+        <h3>Justice League</h3>
+        <p>Flash est un membre clé de la célèbre équipe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Ennemis</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Reverse Flash</h3>
+        <p>Son ennemi juré, aussi rapide mais motivé par la haine.</p>
+      </div>
+      <div class="card">
+        <h3>Zoom</h3>
+        <p>Un adversaire terrifiant qui manipule la vitesse.</p>
+      </div>
+      <div class="card">
+        <h3>Captain Cold</h3>
+        <p>Armé de son pistolet à glace, il est imprévisible.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 - Page hommage à Flash | Design par Alicia ✨
+    © 2025 The Flash Universe - Fan Site by Alicia ⚡
   </footer>
 </body>
 </html>
