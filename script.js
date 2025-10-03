@@ -14,3 +14,30 @@ const heroId = 346; // 👈 CHANGEZ CET ID ! (346 = Iron Man)
 // Wonder Woman: 720, Hulk: 332, Thor: 659, Flash: 263
 const myToken = "4905856019427443"; // ⚠️ Remplacez par le token donné dans le cours
 const apiUrl = `https://www.superheroapi.com/api.php/${myToken}/${heroId}`;
+
+async function recupDataHero() {
+    try {
+        const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(apiUrl)}`);
+
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.response === "error") {
+            throw new Error(data.error);
+        }
+
+        const heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+
+        recupDataHero(data, heroImageUrl);
+    } catch (error) {
+        console.error("Errur lors de la récupération des données:", error);
+        document.getElementById('hero-info').innerHTML = `
+            <p style="color: red; text-align: center;">
+                 Erreur: ${error.message}
+            </p>
+        `;
+    }
+}
