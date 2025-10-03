@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki des Super-Héros | Dossier Hulk</title>
+    
+    <style>
+        
+        :root {
+            --color-hulk-green: #6AA84F;    
+            --color-accent-violet: #9900FF; /* Violet électrique pour l'énergie */
+            --color-background-dark: #2C3E50; /* Gris-bleu foncé (professionnel) */
+            --color-card-dark: #3E3E3E;     /* Gris foncé/Marron pour la fiche */
+            --color-text-light: #F0F0F0;    /* Texte très clair pour contraste */
+        }
+
+        /* 1. Styles de base (professionnel et sombre) */
+        body {
+            font-family: 'Consolas', 'Courier New', monospace; /* Police technique/labo */
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background-dark); 
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* 2. Style de l'en-tête */
+        header {
+            background-color: var(--color-hulk-green);
+            color: var(--color-background-dark);
+            padding: 25px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-accent-violet);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        /* 3. Navigation */
+        nav ul {
+            list-style: none;
+            padding: 10px 0 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: var(--color-background-dark);
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: var(--color-accent-violet);
+            color: var(--color-text-light);
+            box-shadow: 0 0 10px var(--color-accent-violet);
+        }
+
+        
+        #hero-info {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: var(--color-card-dark); /* FOND SOMBRE DEMANDÉ */
+            border: 1px solid var(--color-hulk-green);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Lueur verte */
+            color: var(--color-text-light); 
+            display: flex;
+            gap: 40px;
+        }
+
+        /* 5. Structure du contenu */
+        .hero-details {
+            flex: 2;
+        }
+        .hero-media {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* 6. Image */
+        .hero-media img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border: 5px solid var(--color-accent-violet); 
+            box-shadow: 0 0 15px var(--color-accent-violet); /* Lueur violette */
+            border-radius: 8px;
+        }
+        
+        /* 7. Titres */
+        #hero-info h2 {
+            color: var(--color-hulk-green);
+            border-bottom: 3px dashed var(--color-hulk-green);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+        }
+        #hero-info h3 {
+            color: var(--color-accent-violet);
+            border-left: 5px solid var(--color-accent-violet);
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+
+        /* 8. Listes (attributs) - Utilisation du vert pour les labels */
+        .attributes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .attributes ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .attributes li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #555;
+        }
+        
+        .attributes li strong {
+            color: var(--color-hulk-green);
+            display: inline-block;
+            width: 150px; /* Assure l'alignement */
+        }
+
+        /* 9. Citation */
+        .quote {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--color-hulk-green);
+            font-style: italic;
+            text-align: center;
+            color: var(--color-text-light);
+        }
+
+        /* 10. Pied de page */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--color-card-dark);
+            color: var(--color-text-light);
+            margin-top: 50px;
+            border-top: 1px solid var(--color-hulk-green);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Super-Héro GAMMA : HULK</h1>
+         <nav>
+
+
+            
+            <ul>
+                <li><a href="#accueil">ACCUEIL</a></li>
+                <li><a href="#hulk">HULK</a></li>
+                <li><a href="images.jpeg" id="link-data">DONNÉES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero-info">
+            
+            <div class="hero-details">
+                <h2>CLASSIFICATION : TITAN VERT </h2>
+
+                <p>
+                    Le sujet **Robert Bruce Banner**, physicien nucléaire de renommée mondiale, est le résultat d'une exposition cataclysmique aux **rayons gamma**. Cette irradiation a créé un **alter ego** monstrueux, le **Hulk**, qui se manifeste en cas de stress émotionnel ou de forte colère. L'entité présente une **menace** de classe 9, tout en étant une ressource imprévisible pour la défense planétaire.
+                </p>
+
+                <div class="attributes">
+                    <div>
+                        <h3>PROFIL DE L'HÔTE (BANNER)</h3>
+                        <ul>
+                            <li><strong>Nom :</strong> Robert Bruce Banner</li>
+                            <li><strong>Statut :</strong> Fugitif/Chercheur</li>
+                            <li><strong>Spécialité :</strong> Physique Nucléaire, Biochimie</li>
+                            <li><strong>Condition :</strong> Multiple Personnalité Dissociative</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>ATTRIBUTS PHYSIQUES (HULK)</h3>
+                        <ul>
+                            <li><strong>Force Brute :</strong> Non Mesurable (Augmentation Exponentielle)</li>
+                            <li><strong>Résilience :</strong> Peau quasi Impénétrable</li>
+                            <li><strong>Régénération :</strong> Récupération tissulaire Extrême</li>
+                            <li><strong>Énergie :</strong> Propulsion par Bonds Longue Portée</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="quote">
+                    « Vous ne voulez pas me voir en colère. C'est quand vous me voyez en colère que les choses se cassent. »
+                </p>
+            </div>
+
+            <div class="hero-media">
+                <h3>Sujet GAMMA</h3>
+                <img src="hu.webp" alt="Dossier photo du sujet Hulk" title="Hulk : Force Illimitée">
+                <p style="font-size: 0.85em; color: var(--color-hulk-green); margin-top: 10px; font-weight: bold;">
+                    Statut : ACTIF / NON-CONFINÉ
+                </p>
+            </div>
+
+        </section>
+    </main>
+    
+    <footer>
+        <p>FICHIER CLASSÉ S.H.I.E.L.D. | Accès Restreint | Design Thématique | &copy; 2024</p>
+    </footer>
+
+    <script src="script-h.js"></script>
+</body>
+</html>
