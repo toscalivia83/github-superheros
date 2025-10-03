@@ -3,8 +3,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    background-color: darkgrey;
 }
 #hero-info{
     width: 100%;
     text-align: center;
+    
 }
+
+#image img{
+    width: 250px;
+    border-radius: 30px;
+    box-shadow: 20px 20px 7px rgba(35, 31, 31, 0.2);
+    
+}
+
+.gras, #titre{
+    color: white;
+}
+
