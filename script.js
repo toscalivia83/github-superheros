@@ -7,7 +7,11 @@
 // 4. Faites des commits réguliers !
 // ========================================
 
+<<<<<<< HEAD
+const heroId = 370; // 👈 CHANGEZ CET ID !
+=======
 const heroId = 659; // 👈 CHANGEZ CET ID !
+>>>>>>> fea06a145490aafc70055cc2ab9931e0f2f47d0d
 
 // Liste des IDs disponibles :
 // Spider-Man: 620, Batman: 70, Iron Man: 346, Superman: 644
