@@ -32,6 +32,10 @@ fetch(apiUrl)
     <p><strong>Éditeur :</strong> ${data.biography.publisher}</p>
     <p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p>
     <p><strong>Force :</strong> ${data.powerstats.strength}/100</p>
+    <p><strong>Vitesse :</strong> ${data.powerstats.speed}/100</p>
+    <p><strong>Durabilité :</strong> ${data.powerstats.durability}/100</p>
+    <p><strong>Puissance :</strong> ${data.powerstats.power}/100</p>
+    <p><strong>Combat :</strong> ${data.powerstats.combat}/100</p>
     <p><strong>Bioagraphy :</strong> ${data.biography['place-of-birth']}</p>
     <p><strong>Taille :</strong> ${data.appearance.height.join(' / ')}</p>
     <p><strong>Poids :</strong> ${data.appearance.weight.join(' / ')}</p>
