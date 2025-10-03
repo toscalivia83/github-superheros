@@ -31,7 +31,7 @@ async function recupDataHero() {
 
         const heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
 
-        recupDataHero(data, heroImageUrl);
+        montrerDataHero(data, heroImageUrl);
     } catch (error) {
         console.error("Errur lors de la récupération des données:", error);
         document.getElementById('hero-info').innerHTML = `
@@ -41,3 +41,27 @@ async function recupDataHero() {
         `;
     }
 }
+
+function montrerDataHero(data, heroImageUrl) {
+    const heroInfo = document.getElementById('hero-info');
+
+    heroInfo.innerHTML = `
+        <div class="hero-card">
+            <h2>${data.name}</h2>
+            <img src="${heroImageUrl}" alt="${data.name}" height="200">
+            <div class="hero-details">
+                <p><strong>Nom complet :</strong> ${data.biography['full-name'] || 'Non disponible'}</p>
+                <p><strong>Éditeur :</strong> ${data.biography.publisher}</p>
+                <p><strong>Lieu de naissance :</strong> ${data.biography['place-of-birth'] || 'Non disponible'}</p>
+                <p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p>
+                <p><strong>Force :</strong> ${data.powerstats.strength}/100</p>
+                <p><strong>Vitesse :</strong> ${data.powerstats.speed}/100</p>
+                <p><strong>Endurance :</strong> ${data.powerstats.durability}/100</p>
+                <p><strong>Puissance :</strong> ${data.powerstats.power}/100</p>
+                <p><strong>Combat :</strong> ${data.powerstats.combat}/100</p>
+            </div>
+        </div>
+    `;
+}
+
+document.addEventListener('DOMContentLoaded', recupDataHero);
