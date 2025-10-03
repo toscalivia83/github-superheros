@@ -25,12 +25,16 @@ h2 {
 }
 
 p {
-  text-align: right;
+  text-align: center;
   color: #ffffff;
   font-size: 16px;
   line-height: 2;
   font-family: Georgia, serif;
-  width: 300px;
+  width: 500px;
+  
+  padding-left: 35px;
+  background-color: rgb(50, 48, 48);
+  border-radius: 5%;
 }
 
 strong {
@@ -45,4 +49,10 @@ body {
   border: 5px solid #000000;
 }
 
-#hero-info { border-radius: 5%; border-color: #ffd900; border-style: dashed; padding: 30px; } 
+#hero-info { 
+  border-radius: 5%;
+  border-color: #ffd900; 
+  border-style: dashed; 
+  padding: 30px; 
+  text-align: center; /* aligne l'image */
+} 
