@@ -1,5 +1,4 @@
 const heroId = 70;
-
 const myToken = "6570e44801f81594f8a913d3e21be5ab"; 
 const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
