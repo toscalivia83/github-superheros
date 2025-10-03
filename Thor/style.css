@@ -5,6 +5,7 @@ body{
     align-items: center;
     font-size: 2rem;
     background-color: darkgrey;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #hero-info{
     width: 100%;
@@ -15,11 +16,20 @@ body{
 #image img{
     width: 250px;
     border-radius: 30px;
+    border: 3px solid white;
     box-shadow: 20px 20px 7px rgba(35, 31, 31, 0.2);
     
 }
 
+#titre{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    font-size: 5rem;
+    margin: 10px;
+}
 .gras, #titre{
     color: white;
 }
-
+p{
+    margin: 0;
+}
