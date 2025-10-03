@@ -1,4 +1,5 @@
 
+
 body {
     background: linear-gradient(135deg, #FFD700 0%, #FF6347 100%); 
     font-family: 'Comic Sans MS', cursive, sans-serif; 
@@ -91,3 +92,101 @@ ul li {
     70% { transform: scale(0.9); }
     100% { transform: scale(1); }
 }                                                
+=======
+/* style.css */
+
+/* ----- Reset de base ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5d);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ----- Titre principal ----- */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+/* ----- Conteneur héros ----- */
+#hero-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+}
+
+/* ----- Sous-titres ----- */
+#hero-info h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff4d4d;
+}
+
+#hero-info h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffcc00;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.3rem;
+}
+
+/* ----- Image héros ----- */
+#hero-info img {
+    display: block;
+    margin: 0 auto 1rem auto;
+    border-radius: 12px;
+    border: 3px solid #ff4d4d;
+    max-width: 250px;
+    transition: transform 0.3s ease;
+}
+#hero-info img:hover {
+    transform: scale(1.05);
+}
+
+/* ----- Texte et infos ----- */
+#hero-info p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+#hero-info strong {
+    color: #ffcc00;
+}
+
+/* ----- Liste stats ----- */
+#hero-info ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+#hero-info li {
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0.3rem 0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+#hero-info li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
