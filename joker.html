@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wiki des Super-Héros</title>
+    <title>Wiki - Le Joker</title>
 
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 0;
         padding: 20px;
-        background-color: #e9e9e9; /* Arrière-plan léger */
-        color: #333;
+        background-color: #1a1a1a; /* Fond très sombre */
+        color: #f0f0f0; /* Texte clair */
         text-align: center;
       }
 
       h1 {
-        color: #1f77b4; /* Un bleu classique */
-        border-bottom: 2px solid #ccc;
+        color: #7950a4; /* Violet */
+        border-bottom: 3px solid #6b8e23; /* Vert olive */
         padding-bottom: 10px;
         margin-bottom: 30px;
       }
@@ -27,31 +27,169 @@
         max-width: 700px;
         margin: 0 auto;
         padding: 20px;
-        background-color: #ffffff; /* Fond blanc pour la carte */
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #333; /* Fond gris foncé */
+        border: 5px solid #7950a4; /* Bordure violette */
+        border-radius: 10px;
+        box-shadow: 0 0 20px #6b8e23; /* Ombre verte pour l'effet toxique */
+        text-align: left;
       }
 
-      /* Styles qui seront utilisés par les éléments générés par JS */
       .hero-card h2 {
-        color: #d62728; /* Rouge pour le nom du héros/vilain */
+        color: #6b8e23; /* Vert */
+        font-size: 2.2em;
+        text-shadow: 2px 2px #7950a4;
+        text-align: center;
       }
 
       .hero-card img {
-        max-width: 100%;
-        height: auto;
+        border: 3px solid #7950a4;
         border-radius: 5px;
-        margin: 15px 0;
+        margin: 15px auto;
+        display: block;
+      }
+
+      /* Mise en forme des statistiques */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .stat-item {
+        padding: 10px;
+        border: 1px dashed #6b8e23;
+        border-radius: 5px;
+      }
+      .stat-item strong {
+        display: block;
+        font-size: 1.5em;
+        color: #fff;
+      }
+      .stat-item span {
+        color: #ccc;
+      }
+
+      .error-message {
+        color: red;
+        font-weight: bold;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <h1>Wiki des Super-Héros</h1>
+    <h1>Wiki des Super-Vilains : Le Clown Prince du Crime</h1>
 
-    <div id="hero-info">
-      <h2>Chargement des données du héros...</h2>
-    </div>
+    <div id="hero-info"></div>
 
-    <script src="script.js"></script>
+    <script>
+      // ----------------------------------------------------
+      // Configuration de l'API (à modifier pour chaque héros)
+      // ----------------------------------------------------
+      const heroId = 370; // 👈 L'ID du Joker
+
+      // Token fourni par l'énoncé :
+      const myToken = "6570e44801f81594f8a913d3e21be5ab";
+      const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
+
+      const heroInfoDiv = document.getElementById("hero-info");
+
+      // ----------------------------------------------------
+      // Fonction d'affichage statique pour la gestion d'erreur
+      // ----------------------------------------------------
+      function afficherPresentationStatique(detailsErreur) {
+        const staticPresentation = `
+                <div class="hero-card static-joker">
+                    <h2>🤡 Le Joker : Le Clown Prince du Crime 🃏</h2>
+                    <img src="https://via.placeholder.com/250x300/7950a4/FFFFFF?text=JOKER" alt="Image du Joker (Statique)" height="250">
+                    
+                    <p class="error-message">
+                        ⚠️ Erreur API : Les données n'ont pas pu être chargées. Vérifiez le token et l'ID.
+                    </p>
+                    <h3>Présentation générale :</h3>
+                    <p><strong>Affiliation :</strong> DC Comics</p>
+                    <p><strong>Motivation :</strong> Chaos et folie pure.</p>
+                </div>
+            `;
+        heroInfoDiv.innerHTML = staticPresentation;
+        console.error("Erreur de l'API :", detailsErreur);
+      }
+
+      // ----------------------------------------------------
+      // Récupération et Affichage des données
+      // ----------------------------------------------------
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Gestion des erreurs de l'API (ex: mauvais token)
+          if (data.error || data.response === "error") {
+            afficherPresentationStatique(data.error || "Réponse d'erreur API");
+            return;
+          }
+
+          // Proxy pour contourner les problèmes CORS de l'image
+          const heroImageUrl =
+            "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+
+          // Crée le contenu HTML dynamique
+          const htmlContent = `
+                    <div class="hero-card">
+                        <h2>${data.name}</h2>
+                        <img src="${heroImageUrl}" alt="${
+            data.name
+          }" height="350">
+                        
+                        <h3>Fiche Biographique</h3>
+                        <p><strong>Nom complet :</strong> ${
+                          data.biography["full-name"] || "Inconnu"
+                        }</p>
+                        <p><strong>Éditeur :</strong> ${
+                          data.biography.publisher
+                        }</p>
+                        <p><strong>Lieu de naissance :</strong> ${
+                          data.biography["place-of-birth"]
+                        }</p>
+                        <p><strong>Groupe :</strong> ${
+                          data.connections["group-affiliation"]
+                        }</p>
+
+                        <h3>Statistiques (Puissance du Chaos)</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <strong>${data.powerstats.intelligence}</strong>
+                                <span>Intelligence</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>${data.powerstats.strength}</strong>
+                                <span>Force</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>${data.powerstats.speed}</strong>
+                                <span>Vitesse</span>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 25px;">
+                            <strong>Occupation :</strong> ${
+                              data.work.occupation
+                            }
+                        </p>
+                    </div>
+                `;
+
+          // Injecte le contenu dans la div
+          heroInfoDiv.innerHTML = htmlContent;
+        })
+        .catch((error) => {
+          // Gère les erreurs de réseau (ex: pas d'internet)
+          afficherPresentationStatique(error.message);
+        });
+    </script>
   </body>
 </html>
