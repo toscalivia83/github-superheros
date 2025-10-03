@@ -13,12 +13,7 @@ const heroId = 263; // 👈 CHANGEZ CET ID !
 // Spider-Man: 620, Batman: 70, Iron Man: 346, Superman: 644
 // Wonder Woman: 720, Hulk: 332, Thor: 659, Flash: 263
 const myToken = ""; // Ajoutez le token donné dans le cours
-<<<<<<< HEAD:script-Flash.js
-const apiUrl = `https://superheroapi.com/api.php/6570e44801f81594f8a913d3e21be5ab/$
-{heroId}`;
-=======
-const apiUrl = `https://superheroapi.com/api.php/6570e44801f81594f8a913d3e21be5ab/$ {heroId}`; 
->>>>>>> d56fae194b4bc49713a30cdf74382e00cd7ea534:script.js
+const apiUrl = `https://superheroapi.com/api.php/6570e44801f81594f8a913d3e21be5ab/${heroId}`;
 
 // Récupérer les données du héros avec fetch()
 // et les afficher grâce à Javascript dans le HTML de cette manière :
