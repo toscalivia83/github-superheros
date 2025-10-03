@@ -12,10 +12,15 @@ const heroId = 370; // 👈 CHANGEZ CET ID !
 // Liste des IDs disponibles :
 // Spider-Man: 620, Batman: 70, Iron Man: 346, Superman: 644
 // Wonder Woman: 720, Hulk: 332, Thor: 659, Flash: 263
-const myToken = ""; // Ajoutez le token donné dans le cours
+const myToken = `6570e44801f81594f8a913d3e21be5ab`;  // Ajoutez le token donné dans le cours
 const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
 // Récupérer les données du héros avec fetch()
+fetch(apiUrl)
+.then(response => response.json()) // Convertit la réponse en JSON
+.then(data => console.log(data)) // Affiche les données dans la console
+.catch(error => console.error('Erreur :', error)); // Gestion d'erreur
+
 // et les afficher grâce à Javascript dans le HTML de cette manière :
 
 {{/* <h2>${data.name}</h2>

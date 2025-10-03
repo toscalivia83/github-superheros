@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wiki des Super-Héros</title>
+  </head>
+  <body>
+    <h1>Joker</h1>
+
+    <div id="hero-info">
+      <h2>${data.name}</h2>
+      <img src="${heroImageUrl}" alt="${data.name}" height="200" />
+      <p><strong>Nom complet :</strong> ${data.biography['full-name']}</p>
+      <p><strong>Éditeur :</strong> ${data.biography.publisher}</p>
+      <p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p>
+      <p><strong>Force :</strong> ${data.powerstats.strength}/100</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
