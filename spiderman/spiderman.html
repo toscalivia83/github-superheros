@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wiki des Super-Héros</title>
+</head>
+<body >
+
+    <h1>Wiki des Super-Héros</h1>    
+    <div id="hero-info">
+        <h2>${data.name}</h2>
+    <div id="image"><img src="${heroImageUrl}" alt="${data.name}" height="200"></div>
+    <div id="name"><p><strong>Nom complet :</strong> ${data.biography['full-name']}</p></div>
+    <div id="editeur"><p><strong>Éditeur :</strong> ${data.biography.publisher}</p></div>
+    <div id="intelligence"><p><strong>Intelligence :</strong> ${data.powerstats.intelligence}/100</p></div>
+    <div id="force"><p><strong>Force :</strong> ${data.powerstats.strength}/100</p></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
