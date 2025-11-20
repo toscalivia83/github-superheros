@@ -6,9 +6,8 @@
 // 3. Ajoutez du CSS dans index.html si vous voulez
 // 4. Faites des commits réguliers !
 // ========================================
-
-const heroId = 620; // 👈 CHANGEZ CET ID !
-
+;
+const heroId = 659; // 👈 CHANGEZ CET ID !
 
 // Liste des IDs disponibles :
 // Spider-Man: 620, Batman: 70, Iron Man: 346, Superman: 644
@@ -17,8 +16,35 @@ const myToken = `6570e44801f81594f8a913d3e21be5ab`;
 const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
 fetch(apiUrl)
-.then(response => response.json()) // Convertit la réponse en JSON
-.then(data => console.log("data", data)) // Affiche les données dans la console
+.then(response => response.json())
+  .then(data => {
+    console.log(data)
+ 
+      const titre = document.getElementById("titre")
+      titre.innerHTML = data.name
+
+      const heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
+      document.getElementById("image").innerHTML= `<img src="${heroImageUrl}" alt="Thor">`;
+      document.getElementById("image1").innerHTML= `<img src="${heroImageUrl}" alt="Thor">`;
+
+      const full_name = document.getElementById("full_name")
+      full_name.innerHTML = data.biography['full-name']
+      
+      const editeur=document.getElementById("editeur")
+      editeur.innerHTML=data.biography.publisher
+
+      const intelligence=document.getElementById("intelligence")
+      intelligence.innerHTML=data.powerstats.intelligence
+
+      const force=document.getElementById("force")
+      force.innerHTML=data.powerstats.strength
+
+    ;
+
+    // Injection dans le DOM
+    // document.getElementById("image").innerHTML = heroHtml;
+  })
+ // Affiche les données dans la console
 .catch(error => console.error('Erreur :', error)); // Gestion d'erreur
 
 // Récupérer les données du héros avec fetch()
@@ -33,4 +59,4 @@ fetch(apiUrl)
 
 // utilisez heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
 
-// N'oubliez pas de gérer les erreurs (avec .catch())   
+// N'oubliez pas de gérer les erreurs (avec .catch())
