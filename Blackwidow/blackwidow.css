@@ -1,8 +1,5 @@
 /* style.css */
 
-<<<<<<<< HEAD:Wolverine/Wolverine.css
-========
-
 body {
     background: linear-gradient(135deg, #FFD700 0%, #FF6347 100%); 
     font-family: 'Comic Sans MS', cursive, sans-serif; 
@@ -94,11 +91,7 @@ ul li {
     50% { transform: scale(1.05); opacity: 1; }
     70% { transform: scale(0.9); }
     100% { transform: scale(1); }
-}                                                
-=======
-/* style.css */
-
->>>>>>>> feature/ajout-dossiersMouad:Blackwidow/blackwidow.css
+}
 /* ----- Reset de base ----- */
 * {
     margin: 0;
