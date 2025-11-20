@@ -1,7 +1,4 @@
-/* style.css /
-
-/ ----- Reset de base ----- */
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,7 +15,6 @@ body {
     padding: 2rem;
 }
 
-/* ----- Titre principal ----- /
 h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -28,7 +24,6 @@ h1 {
     letter-spacing: 2px;
 }
 
-/ ----- Conteneur héros ----- /
 #hero-info {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
@@ -39,7 +34,6 @@ h1 {
     backdrop-filter: blur(6px);
 }
 
-/ ----- Sous-titres ----- /
 #hero-info h2 {
     text-align: center;
     font-size: 2rem;
@@ -55,7 +49,6 @@ h1 {
     padding-bottom: 0.3rem;
 }
 
-/ ----- Image héros ----- /
 #hero-info img {
     display: block;
     margin: 0 auto 1rem auto;
@@ -64,11 +57,11 @@ h1 {
     max-width: 250px;
     transition: transform 0.3s ease;
 }
+
 #hero-info img:hover {
     transform: scale(1.05);
 }
 
-/ ----- Texte et infos ----- /
 #hero-info p {
     margin: 0.5rem 0;
     line-height: 1.5;
@@ -78,7 +71,6 @@ h1 {
     color: #ffcc00;
 }
 
-/ ----- Liste stats ----- */
 #hero-info ul {
     list-style: none;
     margin-top: 0.5rem;
