@@ -15,7 +15,7 @@ const heroId = 717; // 👈 CHANGEZ CET ID !
 const myToken = "6570e44801f81594f8a913d3e21be5ab"; // Ajoutez le token donné dans le cours
 const apiUrl = `https://superheroapi.com/api.php/6570e44801f81594f8a913d3e21be5ab/${heroId}`;
 
-// Récupérer les données du héros avec fetch()
+// Récupérer les données du héros avec fetch()   
 // et les afficher grâce à Javascript dans le HTML de cette manière :
 
 {{/* <h2>${data.name}</h2>

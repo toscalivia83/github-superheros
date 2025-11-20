@@ -27,4 +27,4 @@ const apiUrl = `https://superheroapi.com/api.php/${myToken}/${heroId}`;
 
 // utilisez heroImageUrl = "https://corsproxy.io/?" + encodeURIComponent(data.image.url);
 
-// N'oubliez pas de gérer les erreurs (avec .catch())
+// N'oubliez pas de gérer les erreurs (avec .catch())   
